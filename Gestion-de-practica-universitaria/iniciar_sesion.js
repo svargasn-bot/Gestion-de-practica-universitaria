@@ -5,11 +5,11 @@ function ejecutarLogin(event) {
     
     if (email.includes('admin')) {
         alert('Detectado como Administrador');
-        window.location.href = 'admin/admin.html'; 
+        window.location.href = 'admin/inicio.html'; 
     } 
     else if (email.includes('coord')) {
         alert('Detectado como Coordinador');
-        window.location.href = 'coord/coord.html';
+        window.location.href = 'coord/inicio.html';
     } 
     else if (email !== "") {
         alert('Detectado como Estudiante');
