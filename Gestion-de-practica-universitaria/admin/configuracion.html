@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Gestión de Prácticas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --primary-blue: #0d6efd;
+            --bg-gray: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            background: white;
+            border-right: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+        }
+
+        .nav-link {
+            color: #495057;
+            padding: 12px 20px;
+            margin: 4px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            background-color: #f1f3f5;
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active {
+            background-color: #e7f1ff;
+            color: var(--primary-blue);
+        }
+
+        .nav-link.text-danger:hover {
+            background-color: #fff5f5;
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar d-flex flex-column">
+        <div class="p-4 mb-2">
+            <div class="bg-primary text-white p-2 rounded text-center fw-bold shadow-sm">Administrador</div>
+        </div>
+
+        <nav class="nav flex-column flex-grow-1">
+            <a class="nav-link" href="admin.html"><i class="bi bi-speedometer2 me-2"></i> Inicio - Dashboard</a>
+            <a class="nav-link" href="mantenedores_admin.html"><i class="bi bi-flag me-2"></i> Gestionar Recursos</a>
+            <a class="nav-link" href="usuarios.html"><i class="bi bi-people me-2"></i> Usuarios</a>
+            <a class="nav-link" href="empresas.html"><i class="bi bi-buildings me-2"></i></i> Empresas</a>
+            <a class="nav-link" href="carreras.html"><i class="bi bi-backpack3 me-2"></i></i> Carreras</a>
+            <a class="nav-link" href="roles.html"><i class="bi bi-card-checklist me-2"></i> Roles</a>
+            <a class="nav-link" href="respaldos.html"><i class="bi bi-database me-2"></i></i> Respaldos</a>
+            <a class="nav-link active" href="configuracion.html"><i class="bi bi-gear me-2"></i></i> Configuración</a>
+            <a class="nav-link" href="perfil.html"><i class="bi bi-person-circle me-2"></i></i> Mi Perfil</a>
+
+            <a class="nav-link text-danger mt-auto mb-4" href="../index.html">
+                <i class="bi bi-box-arrow-left me-2"></i> Cerrar Sesión
+            </a>
+        </nav>
+    </div>
+    <div class="main-content">
+            <div class="row g-4">
+
+    <!-- SEGURIDAD -->
+    <div class="col-lg-6">
+        <div class="card card-custom h-100">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-danger bg-opacity-10 p-3 rounded me-3">
+                        <i class="bi bi-shield-lock text-danger fs-4"></i>
+                    </div>
+
+                    <div>
+                        <h5 class="fw-bold mb-0">Seguridad del Sistema</h5>
+                        <small class="text-muted">
+                            Configuración de acceso y sesiones.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-check form-switch mb-4">
+                    <input class="form-check-input" type="checkbox" checked>
+
+                    <label class="form-check-label">
+                        Control de sesión única habilitado
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Tiempo de inactividad permitido
+                    </label>
+
+                    <div class="input-group">
+                        <input type="number" class="form-control" value="15">
+                        <span class="input-group-text">min</span>
+                    </div>
+
+                    <small class="text-muted">
+                        Cierre automático de sesión por inactividad.
+                    </small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card card-custom h-100">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-warning bg-opacity-10 p-3 rounded me-3">
+                        <i class="bi bi-database-fill-gear text-warning fs-4"></i>
+                    </div>
+
+                    <div>
+                        <h5 class="fw-bold mb-0">Respaldos</h5>
+                        <small class="text-muted">
+                            Administración de copias de seguridad.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">
+                        Ventana de mantenimiento
+                    </label>
+
+                    <input type="text" class="form-control"
+                        value="00:00 - 06:00" disabled>
+                </div>
+
+                <div class="d-grid gap-2">
+
+                    <button class="btn btn-outline-warning">
+                        <i class="bi bi-cloud-arrow-down me-2"></i>
+                        Generar respaldo manual
+                    </button>
+
+                    <button class="btn btn-outline-secondary">
+                        <i class="bi bi-clock-history me-2"></i>
+                        Ver historial de respaldos
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card card-custom h-100">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                        <i class="bi bi-diagram-3 text-primary fs-4"></i>
+                    </div>
+
+                    <div>
+                        <h5 class="fw-bold mb-0">Estados de Práctica</h5>
+                        <small class="text-muted">
+                            Estados registrados en Estado_Practica.
+                        </small>
+                    </div>
+                </div>
+
+                <ul class="list-group">
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        Postulado
+                        <span class="badge bg-primary">Activo</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        Asignado
+                        <span class="badge bg-primary">Activo</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        En Curso
+                        <span class="badge bg-primary">Activo</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        Evaluado
+                        <span class="badge bg-primary">Activo</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        Finalizada
+                        <span class="badge bg-success">Activo</span>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card card-custom h-100">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                        <i class="bi bi-clipboard-check text-success fs-4"></i>
+                    </div>
+
+                    <div>
+                        <h5 class="fw-bold mb-0">Tipos de Evaluación</h5>
+                        <small class="text-muted">
+                            Configuración basada en Tipo_Evaluacion.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table align-middle">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Empresa</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Habilitado
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Coordinador</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Habilitado
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Autoevaluación</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Habilitado
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    </div>
+</body>
+</html>
