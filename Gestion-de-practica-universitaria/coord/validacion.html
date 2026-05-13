@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación Manual - Panel Coordinador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --primary-blue: #0d6efd;
+            --bg-gray: #f8f9fa;
+        }
+
+        body { background-color: var(--bg-gray); }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            background: white;
+            border-right: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+        }
+
+        .nav-link {
+            color: #495057;
+            padding: 12px 20px;
+            margin: 4px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover { background-color: #f1f3f5; color: var(--primary-blue); }
+        .nav-link.active { background-color: #e7f1ff; color: var(--primary-blue); }
+
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .table thead th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: #6c757d;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar d-flex flex-column">
+        <div class="p-4 mb-2 text-center">
+            <div class="bg-primary text-white p-2 rounded fw-bold shadow-sm">Panel Coordinador</div>
+        </div>
+        
+        <nav class="nav flex-column flex-grow-1">
+            <a class="nav-link" href="inicio.html"><i class="bi bi-speedometer2 me-2"></i> Vista Global</a>
+            <a class="nav-link" href="alumnos.html"><i class="bi bi-people me-2"></i> Alumnos</a>
+            <a class="nav-link" href="ofertas.html"><i class="bi bi-building me-2"></i> Empresas / Ofertas</a>
+            <a class="nav-link active" href="validacion.html"><i class="bi bi-file-earmark-check me-2"></i> Validaciones</a>
+            <a class="nav-link text-danger mt-auto mb-4" href="../index.html">
+                <i class="bi bi-box-arrow-left me-2"></i> Cerrar Sesión
+            </a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <header class="mb-5 d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="fw-bold mb-1">Validación Manual</h2>
+                <p class="text-muted">Gestión de documentos pendientes por categoría.</p>
+            </div>
+            <span class="badge bg-primary px-3 py-2">8 Pendientes</span>
+        </header>
+
+        <!-- Tabla 1: Documentación Personal/Administrativa -->
+        <div class="card card-custom bg-white mb-5">
+            <div class="card-header bg-white py-3 border-0">
+                <h5 class="fw-bold mb-0 text-primary"><i class="bi bi-person-badge me-2"></i>Documentos Personales</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Alumno</th>
+                            <th>Fecha de Carga</th>
+                            <th class="text-end pe-4">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ps-4 fw-bold">Juan Pérez</td>
+                            <td>12/05/2026</td>
+                            <td class="text-end pe-4">
+                                <a href="perfil.html" class="btn btn-sm btn-primary">Revisar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ps-4 fw-bold">Piter Alonso Neira</td>
+                            <td>11/05/2026</td>
+                            <td class="text-end pe-4">
+                                <a href="perfil.html" class="btn btn-sm btn-primary">Revisar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabla 2: Seguimiento de Quincenas -->
+        <div class="card card-custom bg-white">
+            <div class="card-header bg-white py-3 border-0">
+                <h5 class="fw-bold mb-0 text-success"><i class="bi bi-calendar-check me-2"></i>Bitácoras Quincenales</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Alumno</th>
+                            <th>Periodo</th>
+                            <th>Fecha de Carga</th>
+                            <th class="text-end pe-4">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ps-4 fw-bold">Vicente Gutierrez</td>
+                            <td>Quincena 1</td>
+                            <td>Ayer</td>
+                            <td class="text-end pe-4">
+                                <a href="revision_individual.html" class="btn btn-sm btn-primary">Revisar</a>
+                            </td>
+                        </tr>
+                        <tr class="table-warning-subtle">
+                            <td class="ps-4 fw-bold">Lucas Rivas</td>
+                            <td>Quincena 2</td>
+                            <td><span class="text-danger fw-bold">Atrasado</span></td>
+                            <td class="text-end pe-4">
+                                <button class="btn btn-sm btn-danger">Mandar Alerta</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
